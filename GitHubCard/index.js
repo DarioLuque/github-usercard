@@ -52,7 +52,53 @@ const followersArray = [];
 </div>
 
 */
+const createCard = (usersobj) => {
+  const outter = document.querySelector(".cards");
+  const card = document.createElement("div");
 
+  card.classList.add("card");
+    outter.appendChild(card);
+
+  const picture = document.createElement("img");
+  const info = document.createElement("div");
+    card.appendChild(picture);
+    card.appendChild(info);
+    info.classList.add("card-info");
+  
+    const names = document.createElement("h3");
+    names.classList.add("name");
+
+    const users = document.createElement("p");
+    users.classList.add("username");
+
+    const location = document.createElement("p");
+    const profiles = document.createElement("p");
+    const links = document.createElement("a");
+    const followers = document.createElement("p");
+    const following = document.createElement("p");
+    const bios = document.createElement("p");
+      info.appendChild(names);
+      info.appendChild(users);
+      info.appendChild(location);
+      info.appendChild(profiles);
+      info.appendChild(links);
+      info.appendChild(followers);
+      info.appendChild(following);
+      info.appendChild(bios);
+
+    name.textContent = usersobj.name;
+    users.textContent = usersobj.login;
+    location.textContent = usersobj.location;
+    profiles.textContent = "Profiles:";
+      links.href = usersobj.html_url;
+      links.textContent = usersobj.html_url;
+    followers.textContent = `Followers: ${usersobj.followers}`;
+    following.textContent = `Following: ${usersobj.following}`;
+    bios.textContent = usersobj.bios;
+    picture.src = usersobj.avatar_url;
+    
+    return card;
+}
 /* List of LS Instructors Github username's: 
   tetondan
   dustinmyers
